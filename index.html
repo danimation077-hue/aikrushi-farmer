@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="mr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Krushi - Smart Farming</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #f3f8f1;
+      color: #183b25;
+    }
+
+    header {
+      background: #176b38;
+      color: white;
+      padding: 22px 16px;
+      text-align: center;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 29px;
+    }
+
+    header p {
+      margin-bottom: 0;
+    }
+
+    nav {
+      background: white;
+      padding: 14px;
+      text-align: center;
+    }
+
+    select {
+      padding: 10px;
+      border: 1px solid #176b38;
+      border-radius: 8px;
+      font-size: 15px;
+    }
+
+    main {
+      max-width: 700px;
+      margin: auto;
+      padding: 20px 15px;
+    }
+
+    .hero {
+      background: #dff1df;
+      padding: 25px 18px;
+      border-radius: 15px;
+      text-align: center;
+    }
+
+    .hero h2 {
+      font-size: 25px;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin-top: 20px;
+    }
+
+    .card {
+      background: white;
+      padding: 20px 12px;
+      border-radius: 13px;
+      text-align: center;
+      box-shadow: 0 2px 8px #00000010;
+    }
+
+    .card span {
+      font-size: 30px;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      background: #176b38;
+      color: white;
+      margin-top: 25px;
+    }
+
+    @media(max-width: 400px) {
+      .cards {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <h1>🌱 AI Krushi</h1>
+    <p id="tagline">शेतीसाठी स्मार्ट तंत्रज्ञान</p>
+  </header>
+
+  <nav>
+    <label for="language">🌐 Language / भाषा:</label>
+    <select id="language" onchange="changeLanguage()">
+      <option value="mr">मराठी</option>
+      <option value="hi">हिंदी</option>
+      <option value="en">English</option>
+    </select>
+  </nav>
+
+  <main>
+    <section class="hero">
+      <h2 id="welcome">AI Krushi मध्ये आपले स्वागत आहे!</h2>
+      <p id="description">
+        आधुनिक तंत्रज्ञानाच्या मदतीने शेती अधिक स्मार्ट बनवा.
+      </p>
+    </section>
+
+    <section class="cards">
+
+      <div class="card">
+        <span>🌾</span>
+        <h3 id="crop">पीक माहिती</h3>
+        <p id="cropDesc">पिकांबद्दल माहिती मिळवा.</p>
+      </div>
+
+      <div class="card">
+        <span>💰</span>
+        <h3 id="expense">शेती खर्च</h3>
+        <p id="expenseDesc">शेतीचा खर्च मोजा.</p>
+      </div>
+
+      <div class="card">
+        <span>🤖</span>
+        <h3 id="assistant">AI सहाय्यक</h3>
+        <p id="assistantDesc">शेतीविषयक मार्गदर्शन मिळवा.</p>
+      </div>
+
+      <div class="card">
+        <span>📅</span>
+        <h3 id="calendar">पीक कॅलेंडर</h3>
+        <p id="calendarDesc">शेतीचे नियोजन करा.</p>
+      </div>
+
+    </section>
+  </main>
+
+  <footer>
+    <p>© 2026 AI Krushi | Smart Farming</p>
+  </footer>
+
+  <script>
+    const translations = {
+      mr: {
+        tagline: "शेतीसाठी स्मार्ट तंत्रज्ञान",
+        welcome: "AI Krushi मध्ये आपले स्वागत आहे!",
+        description: "आधुनिक तंत्रज्ञानाच्या मदतीने शेती अधिक स्मार्ट बनवा.",
+        crop: "पीक माहिती",
+        cropDesc: "पिकांबद्दल माहिती मिळवा.",
+        expense: "शेती खर्च",
+        expenseDesc: "शेतीचा खर्च मोजा.",
+        assistant: "AI सहाय्यक",
+        assistantDesc: "शेतीविषयक मार्गदर्शन मिळवा.",
+        calendar: "पीक कॅलेंडर",
+        calendarDesc: "शेतीचे नियोजन करा."
+      },
+
+      hi: {
+        tagline: "खेती के लिए स्मार्ट तकनीक",
+        welcome: "AI Krushi में आपका स्वागत है!",
+        description: "आधुनिक तकनीक से खेती को स्मार्ट बनाएं।",
+        crop: "फसल की जानकारी",
+        cropDesc: "फसलों की जानकारी प्राप्त करें।",
+        expense: "खेती का खर्च",
+        expenseDesc: "खेती का खर्च गिनें।",
+        assistant: "AI सहायक",
+        assistantDesc: "खेती से जुड़ी सलाह पाएं।",
+        calendar: "फसल कैलेंडर",
+        calendarDesc: "खेती की योजना बनाएं।"
+      },
+
+      en: {
+        tagline: "Smart Technology for Farming",
+        welcome: "Welcome to AI Krushi!",
+        description: "Make farming smarter with modern technology.",
+        crop: "Crop Information",
+        cropDesc: "Learn about your crops.",
+        expense: "Farm Expenses",
+        expenseDesc: "Calculate farming costs.",
+        assistant: "AI Assistant",
+        assistantDesc: "Get farming guidance.",
+        calendar: "Crop Calendar",
+        calendarDesc: "Plan your farming activities."
+      }
+    };
+
+    function changeLanguage() {
+      const lang = document.getElementById("language").value;
+      const words = translations[lang];
+
+      for (const id in words) {
+        document.getElementById(id).textContent = words[id];
+      }
+
+      document.documentElement.lang = lang;
+    }
+  </script>
+
+</body>
+</html>
